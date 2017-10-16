@@ -10,6 +10,10 @@
     = check_box_tag "ratings[#{rating}]", 1, @selected_ratings.include?(rating), :id => "ratings_#{rating}"
   = submit_tag 'Refresh', :id => 'ratings_submit'
 
+= form_tag url_for(:controller => 'movies', :action => 'search_tmdb'), :method => :post, :id => 'search_form' do
+  = text_field :search,:terms, :id => 'search_box', :name => "search_terms"
+  = submit_tag 'Search TMDb', :id => 'search_button'
+
 %table#movies
   %thead
     %tr
